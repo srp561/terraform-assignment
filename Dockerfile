@@ -7,7 +7,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY code/app.py .
 
 COPY code/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
-RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh    # adding executable permissions to docker-entrypoint.sh
 
 ENV APP_PORT=8080
 EXPOSE 8888
