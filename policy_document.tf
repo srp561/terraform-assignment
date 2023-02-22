@@ -54,7 +54,7 @@ data "aws_iam_policy_document" "task-execution" {
   }
 
   statement {
-    sid = "AllowReadSSMByPath"
+    sid = "AllowReadSSMByPath" 
     actions = [
       "ssm:GetParametersByPath"
     ]
