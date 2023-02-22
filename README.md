@@ -35,4 +35,5 @@ terraform apply
 9. Modified **Security group** - **In ALB SG, allow http port from 81 to 80 and allowed 8080 on TCP**, egress all traffic.In Container SG, ingress all traffic on ALB SG and egress all traffic.
 10. Modified **variables.tf** file - **image tag - lab to latest and ECR repository url in repo_url**.
 11. Modified **main.tf** file - network configuration subnets - **public and enabled assign public ip's to true**, modified load balancer container **port from 8888 to 8080**.
-12. ALB URL dev-assignment-613199568.us-east-1.elb.amazonaws.com
+12. ALB URL http://dev-assignment-613199568.us-east-1.elb.amazonaws.com/
+
