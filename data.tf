@@ -1,7 +1,11 @@
+locals {
+        vpc_name = "vpc"
+}
+
 data "aws_vpc" "vpc" {
-  tags = {
-    env   = local.vpc_env
-    group = local.vpc_group
+  filter {
+    name   = "tag:Name"
+    values = [local.vpc_name]
   }
 }
 
@@ -11,8 +15,9 @@ data "aws_subnets" "public" {
     values = [data.aws_vpc.vpc.id]
   }
 
-  tags = {
-    layer = "public"
+  filter {
+    name   = "tag:Name"
+    values = ["${local.vpc_name}-subnet-public*"]
   }
 }
 
@@ -22,9 +27,8 @@ data "aws_subnets" "private" {
     values = [data.aws_vpc.vpc.id]
   }
 
-  tags = {
-    layer = "private"
+  filter {
+    name   = "tag:Name"
+    values = ["${local.vpc_name}-subnet-private*"]
   }
 }
-
-data "aws_caller_identity" "current" {}
